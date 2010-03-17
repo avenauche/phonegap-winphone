@@ -1,0 +1,12 @@
+First crack at PhoneGap for Windows Phone 7.
+
+No device functionality yet (the API is super new), but from my brief overview, it looks like at least initially
+we should be able to get network status, vibrate and accelerometer functionality... although none of these
+are testable via the emulator.
+
+Basically we load local assets from the www folder into a WebBrowser control, and using the InvokeScript
+and window.external.Notify functions to pass messages between the browser and the .NET code-behind.
+
+todo:
+- add some device functionality
+- figure out how to load local, relatively-referenced assets from the html pages etc. so that the assets load properly.

@@ -1,0 +1,16 @@
+﻿<html>
+	<head>
+		<title>PhoneGap Test</title>
+		<script src="data:///www/phonegap.js"></script>
+		<script type="text/javascript">
+			function test() {
+				document.getElementById('testArea').innerHTML = window.gap.platform;
+			}
+		</script>
+	</head>
+	<body onload="test();">
+		<h1>index.html page within the project: it worked!</h1>
+		<p>Test area:</p>
+		<p id="testArea"></p>
+	</body>
+</html>

@@ -101,6 +101,7 @@ namespace WindowsPhoneApplication1
         /// <param name="e"></param>
         private void browser_ScriptNotify(object sender, NotifyEventArgs e)
         {
+            // Process instruction into a command + parameters (if specified).
             string command = "";
             string[] commandParams;
             int colPos = e.Value.IndexOf(':');
@@ -114,8 +115,9 @@ namespace WindowsPhoneApplication1
                 command = e.Value;
                 commandParams = new string[0];
             }
+            // Send command + params to the command manager and get the return value.
             string returnValue = manager.processInstruction(command, commandParams);
-            if (returnValue != null)
+            if (returnValue != null && returnValue.Length > 0)
             {
                 browser.InvokeScript("gap.evaluate", returnValue);
             }

@@ -26,7 +26,7 @@ namespace PhoneGap
         }
         public string execute(string command, string[] parameters)
         {
-            return "var test = 'this is a test';";
+            return "window.gapTest = 'this is a test';";
         }
     }
 }

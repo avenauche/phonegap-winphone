@@ -1,14 +1,20 @@
 ﻿<html>
 	<head>
 		<title>PhoneGap Test</title>
+    <!-- As you can see, we need to prepend local assets for now with data:// so that the native end knows to load it locally. -->
 		<script src="data:///www/phonegap.js"></script>
 		<script type="text/javascript">
-			function test() {
-				document.getElementById('testArea').innerHTML = window.gap.platform;
+      // Timing out the load function to make sure that the PhoneGap constructors are loaded. This is bad but works.
+      // Alternatively, probably a better approach, would be to listen for the availability of window.gap.available, in a setInterval or something, which executes on load.
+      // All this BS because Internet Explorer events suck. :(
+			function showPlatform() {
+        setTimeout(function() {
+				  document.getElementById('testArea').innerHTML = 'Platform: ' + window.gap.platform + ', PhoneGap Available? ' + window.gap.available;
+        }, 25);
 			}
 		</script>
 	</head>
-	<body onload="test();">
+	<body onload="showPlatform();">
 		<h1>index.html page within the project: it worked!</h1>
 		<p>Test area:</p>
 		<p id="testArea"></p>
